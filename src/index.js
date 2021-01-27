@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { render } from 'react-dom'
 
 /*
@@ -19,16 +19,54 @@ import { render } from 'react-dom'
   - Don't forget all tags need to close correctly
 */
 
+// want to build a "counter" that we display on the screen
+// counter will start at 0
+// if the value of the counter is 0, display a message encouraging the user to increment it
+// increment the counter 
+// multiply the value of the counter by 5
+// reset the counter to be 0
 function App() {
-  const cohort = "PT25"
+  const [count, setCount] = useState(0);
+
+  const incrementByOne = () => {
+    setCount(count + 1);
+  }
+
   return (
     <div className="container">
-      <h1>Welcome to React, Web {cohort}</h1>
+      <h1>React Counter!</h1>
+      <h2>Count: {count}</h2>
+      {/* ternary statement */}
+      {count === 0 ? <h3>Increment me!</h3> : <h3>Good job!</h3> }
+      <button onClick={incrementByOne}>Increment by 1</button>
+      <button onClick={() => setCount(count * 5)}>multiply by 5</button>
+      <button onClick = {() => setCount(0)}>Reset</button>
     </div>
   )
 }
+
+// {count === 0 ? <h3>Increment me!</h3> : <h3>Good job!</h3> }
+// is the same as 
+// if (count === 0) {
+//   return <h3>Increment me!</h3>
+// } else {
+//   return <h3>Good job!</h3>
+// }
 
 render(
   <App />,
   document.querySelector('#root')
 )
+
+
+// function app() {
+//   const cohort = "PT25";
+//   const div = document.createElement('div');
+//   const h1 = document.createElement('h1');
+//   div.classList.add('container');
+//   h1.textContent = `Welcome to React, Web ${cohort}`;
+//   div.appendChild(h1);
+//   return div;
+// }
+
+//console.log(app());
