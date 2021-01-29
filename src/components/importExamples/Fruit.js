@@ -1,9 +1,7 @@
 import React from 'react';
 
-function DisplayFruit() {
+export function DisplayFruit() {
   return (
     <div>DisplayFruit</div>
   )
 }
-
-export default DisplayFruit;
